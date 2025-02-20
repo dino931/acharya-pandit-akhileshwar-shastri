@@ -26,46 +26,39 @@ header p {
     margin: 0.5rem 0;
 }
 
-/* Navigation Bar */
+/* Navbar */
 nav {
-    position: sticky;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
-    background: #222;
-    padding: 10px 15px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
-
-/* Navbar Container */
-nav {
-    position: sticky;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
+    padding: 10px 20px;
     background: #222;
-    padding: 10px 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-/* Navbar Logo */
-.nav-logo {
     color: white;
-    font-size: 1.5rem;
-    font-weight: bold;
-    padding-left: 15px;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
 }
 
-/* Navbar Links */
+/* Hamburger Menu */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.hamburger div {
+    background-color: white;
+    width: 30px;
+    height: 3px;
+    margin: 5px 0;
+}
+
+/* Navigation Links */
 .nav-links {
     list-style: none;
     display: flex;
-    margin: 0;
-    padding: 0;
+    gap: 15px;
 }
 
 .nav-links li {
@@ -74,35 +67,23 @@ nav {
 
 .nav-links li a {
     text-decoration: none;
-    color: #ffffff;
+    color: white;
     font-size: 1rem;
     display: block;
-    text-align: center;
 }
 
-/* Show Hindi above English */
+/* Display Hindi below English */
 .nav-links li a span {
     display: block;
     font-size: 0.8rem;
 }
 
-/* Hamburger Menu */
-.hamburger {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
-    padding-right: 15px;
-}
-
-.hamburger div {
-    background-color: white;
-    width: 25px;
-    height: 3px;
-    margin: 5px 0;
-}
-
-/* Mobile Styles */
+/* Mobile View */
 @media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+    }
+
     .nav-links {
         display: none;
         flex-direction: column;
@@ -116,10 +97,6 @@ nav {
     }
 
     .nav-links.active {
-        display: flex;
-    }
-
-    .hamburger {
         display: flex;
     }
 }
