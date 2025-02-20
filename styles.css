@@ -49,7 +49,7 @@ nav {
     flex-direction: column;
     cursor: pointer;
     position: absolute;
-    right: 70px; /* Adjust this value as needed */
+    right: 100px; /* Adjust this value as needed */
     top: 15px; /* Keeps it inside the navbar */
     z-index: 1100;
 }
