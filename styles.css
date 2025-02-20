@@ -1,4 +1,11 @@
 /* General Styles */
+html, body {
+    overflow-x: hidden;
+}
+* {
+    box-sizing: border-box;
+}
+
 body {
     font-family: 'Noto Sans Devanagari', sans-serif;
     margin: 0;
@@ -31,7 +38,7 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 20px;
+    padding: 10px 20px;
     background: #222;
     color: white;
     position: sticky;
@@ -40,18 +47,59 @@ nav {
     z-index: 1000;
 }
 
+/* Navbar Logo */
+.nav-logo {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* Navbar Links */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+}
+
+/* Nav Link Items */
+.nav-links li {
+    padding: 10px 15px;
+    opacity: 1;
+}
+
+/* Nav Link Animation for Mobile */
+@keyframes navLinkFade {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Nav Link Anchor */
+.nav-links li a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 1rem;
+    display: block;
+    text-align: center;
+}
+
+/* Show Hindi above English */
+.nav-links li a span {
+    display: block;
+    font-size: 0.8rem;
+}
+
 /* Hamburger Menu */
 .hamburger {
     display: none;
     flex-direction: column;
     cursor: pointer;
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
-    position: absolute;
-    right: 100px; /* Adjust this value as needed */
-    top: 15px; /* Keeps it inside the navbar */
-    z-index: 1100;
+    padding-right: 15px;
 }
 
 .hamburger div {
@@ -59,41 +107,14 @@ nav {
     width: 30px;
     height: 3px;
     margin: 5px 0;
-    
+    transition: all 0.3s ease;
 }
 
-/* Navigation Links */
-.nav-links {
-    list-style: none;
-    display: flex;
-    gap: 15px;
-}
-
-.nav-links li {
-    padding: 10px 15px;
-}
-
-.nav-links li a {
-    text-decoration: none;
-    color: white;
-    font-size: 1rem;
-    display: block;
-}
-
-/* Display Hindi below English */
-.nav-links li a span {
-    display: block;
-    font-size: 0.8rem;
-}
-
-/* Mobile View */
+/* Mobile Styles */
 @media (max-width: 768px) {
-    .hamburger {
-        display: flex;
-    }
-
     .nav-links {
-        display: none;
+        /* Ensure display is flex so children are laid out */
+        display: flex;
         flex-direction: column;
         width: 100%;
         background: #222;
@@ -102,12 +123,89 @@ nav {
         left: 0;
         text-align: center;
         padding: 10px 0;
+        /* Hide initially */
+        opacity: 0;
+        transform: translateY(-20px);
+        visibility: hidden;
+        /* Transition both opacity & transform; use visibility with a delay */
+        transition: visibility 0s linear 0.3s, opacity 0.3s ease, transform 0.3s ease;
     }
-
+    
+    /* When active, make it visible immediately */
     .nav-links.active {
+        opacity: 1;
+        transform: translateY(0);
+        visibility: visible;
+        transition-delay: 0s;
+    }
+    
+    /* Animate each nav-link item with delays */
+    .nav-links.active li {
+        animation: navLinkFade 0.5s forwards;
+    }
+    .nav-links.active li:nth-child(1) { animation-delay: 0.1s; }
+    .nav-links.active li:nth-child(2) { animation-delay: 0.2s; }
+    .nav-links.active li:nth-child(3) { animation-delay: 0.3s; }
+    .nav-links.active li:nth-child(4) { animation-delay: 0.4s; }
+    .nav-links.active li:nth-child(5) { animation-delay: 0.5s; }
+    .nav-links.active li:nth-child(6) { animation-delay: 0.6s; }
+    
+    .hamburger {
         display: flex;
     }
 }
+
+/* Hamburger Animation When Active */
+.hamburger.active div:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active div:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active div:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+}
+
+    
+    /* Animate each nav-link item with delays */
+    .nav-links.active li {
+        animation: navLinkFade 0.5s forwards;
+    }
+    .nav-links.active li:nth-child(1) {
+        animation-delay: 0.1s;
+    }
+    .nav-links.active li:nth-child(2) {
+        animation-delay: 0.2s;
+    }
+    .nav-links.active li:nth-child(3) {
+        animation-delay: 0.3s;
+    }
+    .nav-links.active li:nth-child(4) {
+        animation-delay: 0.4s;
+    }
+    .nav-links.active li:nth-child(5) {
+        animation-delay: 0.5s;
+    }
+    .nav-links.active li:nth-child(6) {
+        animation-delay: 0.6s;
+    }
+
+
+/* Hamburger Animation When Active */
+.hamburger.active div:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active div:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active div:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+}
+
 
 /* Section Styles */
 .section {
