@@ -39,41 +39,51 @@ nav {
     align-items: center;
 }
 
-/* Logo */
-.nav-logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #ffffff;
+/* Navbar Container */
+nav {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background: #222;
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-/* Nav Links */
+/* Navbar Logo */
+.nav-logo {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding-left: 15px;
+}
+
+/* Navbar Links */
 .nav-links {
     list-style: none;
+    display: flex;
     margin: 0;
     padding: 0;
-    display: flex;
-    justify-content: center;
 }
 
 .nav-links li {
-    padding: 5px 10px;
+    padding: 10px 15px;
 }
 
 .nav-links li a {
     text-decoration: none;
     color: #ffffff;
-    padding: 0.7rem;
-    font-weight: bold;
-    letter-spacing: 0.5px;
-    transition: background 0.3s ease-in-out;
-    display: flex;
-    flex-direction: column;
+    font-size: 1rem;
+    display: block;
     text-align: center;
 }
 
-.nav-links li a:hover {
-    background: #ff9900;
-    color: #000;
+/* Show Hindi above English */
+.nav-links li a span {
+    display: block;
+    font-size: 0.8rem;
 }
 
 /* Hamburger Menu */
@@ -81,44 +91,36 @@ nav {
     display: none;
     flex-direction: column;
     cursor: pointer;
+    padding-right: 15px;
 }
 
 .hamburger div {
-    width: 30px;
-    height: 4px;
-    background-color: #fff;
-    margin: 4px 0;
-    transition: 0.3s;
+    background-color: white;
+    width: 25px;
+    height: 3px;
+    margin: 5px 0;
 }
 
 /* Mobile Styles */
 @media (max-width: 768px) {
-    .hamburger {
-        display: flex;
-    }
-
     .nav-links {
         display: none;
         flex-direction: column;
         width: 100%;
         background: #222;
         position: absolute;
-        top: 50px;
+        top: 60px;
         left: 0;
         text-align: center;
+        padding: 10px 0;
     }
 
     .nav-links.active {
         display: flex;
     }
 
-    .nav-links li {
-        width: 100%;
-    }
-
-    .nav-links li a {
-        padding: 12px;
-        font-size: 1rem;
+    .hamburger {
+        display: flex;
     }
 }
 
