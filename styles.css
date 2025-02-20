@@ -59,6 +59,25 @@ nav ul li a:hover {
     color: #000;
 }
 
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    nav ul li {
+        width: 100%;
+        text-align: center;
+    }
+
+    nav ul li a {
+        display: block;
+        padding: 10px;
+        width: 100%;
+    }
+}
+
+
 /* Section Styles */
 .section {
     padding: 2rem 0;
@@ -227,7 +246,7 @@ footer {
         display: block;
         transition: transform 0.3s ease;
     }
-    
+
     .about-video {
         margin-top: 1rem;
         text-align: center;
@@ -249,7 +268,7 @@ nav {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 20px;
+    gap: 10px;
 }
 
 .service-card {
