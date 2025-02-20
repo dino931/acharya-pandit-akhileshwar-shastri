@@ -17,16 +17,22 @@
     </header>
 
     <nav>
-        <ul>
+        <div class="nav-logo">Manu bar</div>
+        <div class="hamburger">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <ul class="nav-links">
             <li><a href="#about">About/परिचय</a></li>
             <li><a href="#services">Services/सेवाएँ</a></li>
             <li><a href="#gallery">Gallery/गैलरी</a></li>
             <li><a href="#News">News/न्यूज़</a></li>
             <li><a href="#more">Know more/और जाने</a></li>
             <li><a href="#contact">Contact/संपर्क करें</a></li>
-
         </ul>
     </nav>
+    
 
     <section id="about" class="section">
         <div class="container">
@@ -155,6 +161,16 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script>
+
+document.addEventListener("DOMContentLoaded", function () {
+    const hamburger = document.querySelector(".hamburger");
+    const navLinks = document.querySelector(".nav-links");
+
+    hamburger.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+    });
+});
+
 function openLightbox(imageSrc) {
     document.getElementById("lightbox-img").src = imageSrc;
     document.getElementById("lightbox").style.display = "flex";
